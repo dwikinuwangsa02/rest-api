@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<title>RestApi - MyFileArchive</title>
 	<!--favicon-->
-	<link rel="icon" href="assets/images/favicon-32x32.png" type="image/png" />
+	<link rel="icon" href="https://myfilearchive.xyz/img/content/myfilearchive.png" type="image/png" />
 	<!-- Vector CSS -->
 	<link href="assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
 	<!--plugins-->
@@ -15,6 +15,7 @@
 	<link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
 	<link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="assets/plugins/notifications/css/lobibox.min.css" />
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<!-- loader-->
 	<link href="assets/css/pace.min.css" rel="stylesheet" />
 	<script src="assets/js/pace.min.js"></script>
@@ -251,12 +252,19 @@
 					</ul>
 				</li>
 				<!--End Other-->
-				<li class="menu-label">Support</li>
+				<li class="menu-label">Social Media</li>
 				<li>
-					<a href="https://themeforest.net/user/codervent" target="_blank">
-						<div class="parent-icon"><i class="bx bx-support"></i>
+					<a href="https://wa.me/6283825744854" target="_blank">
+						<div class="parent-icon icon-color-3"><i class="bx bxl-whatsapp"></i>
 						</div>
-						<div class="menu-title">Contact</div>
+						<div class="menu-title">WhatsApp</div>
+					</a>
+				</li>
+				<li>
+					<a href="https://instagram.com/dwikinuwangsa" target="_blank">
+						<div class="parent-icon icon-color-1"><i class="bx bxl-instagram"></i>
+						</div>
+						<div class="menu-title">Instagram</div>
 					</a>
 				</li>
 			</ul>
@@ -512,8 +520,14 @@ if (navigator.appVersion.indexOf("Linux") != -1)
 	setInterval(function(){
 		check_internet_connection();
 	}, 1000);
-	
 	</script>
+
+<script>
+swal(
+	"Butuh ApiKey?",
+	 "Silahkan Whatsapp Admin!",
+	  "warning");
+  </script>
 	<!-- App JS -->
 	<script src="assets/js/app.js"></script>
 	<!--notification js -->
