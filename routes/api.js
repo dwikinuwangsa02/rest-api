@@ -1,15 +1,4 @@
-// Jika ada bug / eror mohon maklumi om , ini cuma latihan buat sy untuk belajar dikit" soal programing
-// Gada reupload" 😏
-// Klo mau colong fitur, jgn asal colong bodoh ntr api eror
 
-// Thanks to ( jgn di hapus jamet)
-/*
-<p> Eka Danuarta</p>
-<p> Ojan</p>
-<p> Farhan</p>
-<p> ZeeoneOfc </p>
-<p> ALL HUMAN</p>
-*/
 __path = process.cwd()
 
 //var aexm = require('@lolikillers/aexm-api');
@@ -34,8 +23,8 @@ var cheerio = require('cheerio');
 var request = require('request');
 var fs = require('fs');
 var router  = express.Router();
-var creator = 'ZeeoneOfc' // ubah jadi nama lu
-const listkey = ["Alphabot","Zeeone","MyFiLeArChIvE"]; // ubah apikey nya, tambah aja klo mau
+var creator = 'MyFileArchive' // ubah jadi nama lu
+const listkey = ["MyFiLeArChIvE"]; // ubah apikey nya, tambah aja klo mau
 
 var { otakudesu, covid, ongoing, komiku, tebakgambar, surah, sholat, lirik, chara,wattpad, playstore, linkwa, pinterest ,igdl,igstory, igstalk,twitter,fbdown,youtube,ttdownloader} = require(__path + '/lib/scrape.js');
 var { color, bgcolor } = require(__path + '/lib/color.js');
@@ -58,13 +47,13 @@ loghandler = {
     error: {
         status: false,
         code: 503,
-        message: 'Service Unavaible, Sedang dalam perbaikan',
+        message: 'Service Unavailable, Sedang dalam perbaikan',
         maintanied_by: `${creator}`
     },
     apikey: {
     	status: false,
     	code: 403,
-    	message: 'Forbiden, Invalid apikey, hubungi saya di whatsapp untuk mendapatkan apikey anda',
+    	message: 'Invalid ApiKey',
     	maintanied_by: `${creator}`
     },
     noturl: {
@@ -3116,6 +3105,25 @@ router.get('/other/kbbi', async (req, res, next) => {
 } else {
   res.json(loghandler.apikey)
 }
+})
+
+router.get('/gacha/vietnam', async (req, res, next) => {
+  var apikeyInput = req.query.apikey
+if(!apikeyInput) return res.json(loghandler.notparam)	
+if (apikeyInput != 'MyFiLeArChIvE21')  return res.json(loghandler.invalidKey)
+ fetch(encodeURI(`https://raw.githubusercontent.com/zeeoneofc/Asupan/main/cecan/vietnam.json`))
+  .then(response => response.json())
+  .then(data => {
+  var result = data;
+  var result = data[Math.floor(Math.random() * data.length)];
+       res.json({
+         author: 'MyFileArchive',
+           result
+       })
+   })
+   .catch(e => {
+     res.json(loghandler.error)
+})
 })
 
 module.exports = router
