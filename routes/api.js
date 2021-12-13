@@ -3106,24 +3106,29 @@ router.get('/other/kbbi', async (req, res, next) => {
   res.json(loghandler.apikey)
 }
 })
+router.get('/gacha/indonesia', async (req, res, next) => {
+  var apikey = req.query.apikey
+ var text = req.query.page
+ if(!apikey) return res.json(loghandler.apikey)
+if(listkey.includes(apikey)){
+fetch(encodeURI(`https://raw.githubusercontent.com/zeeoneofc/Asupan/main/cecan/indonesia.json`))
+.then(response => response.json())
+.then(data => {
+var result = data;
+var result = data[Math.floor(Math.random() * data.length)];
+     res.json({
+       creator : `${creator}`,
+         result
+     })
+ })
+ .catch(e => {
+   console.log(e);
+   res.json(loghandler.error)
+})
+} else {
+res.json(loghandler.apikey)
+}
+})
 
-router.get('/gacha/vietnam', async (req, res, next) => {
-  var apikeyInput = req.query.apikey
-if(!apikeyInput) return res.json(loghandler.notparam)	
-if (apikeyInput != 'MyFiLeArChIvE21')  return res.json(loghandler.invalidKey)
- fetch(encodeURI(`https://raw.githubusercontent.com/zeeoneofc/Asupan/main/cecan/vietnam.json`))
-  .then(response => response.json())
-  .then(data => {
-  var result = data;
-  var result = data[Math.floor(Math.random() * data.length)];
-       res.json({
-         author: 'MyFileArchive',
-           result
-       })
-   })
-   .catch(e => {
-     res.json(loghandler.error)
-})
-})
 
 module.exports = router
