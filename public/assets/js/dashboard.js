@@ -392,3 +392,8 @@ var batteryLevel = document.getElementById("batteryLevel");
     }
     });
 })(jQuery);
+
+
+var dt = new Date();
+document.getElementById('date-time').innerHTML=
+dt.getDate() + " / " + (dt.getMonth() + 1) + " / " + dt.getFullYear();

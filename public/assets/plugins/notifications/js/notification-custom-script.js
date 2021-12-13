@@ -284,3 +284,31 @@ function anim5_noti() {
 		msg: 'Lorem ipsum dolor sit amet hears farmer indemnity inherent.'
 	});
 }
+
+function disconnected_noti() {
+	Lobibox.notify('error', {
+		pauseDelayOnHover: true,
+		continueDelayOnInactiveTab: false,
+		icon: 'bx bx-error',
+		position: 'top center',
+		showClass: 'zoomIn',
+		hideClass: 'zoomOut',
+		size: 'mini',
+		rounded: true,
+		msg: 'No Internet Connection.'
+	});
+}
+
+function connected_noti() {
+	Lobibox.notify('success', {
+		pauseDelayOnHover: true,
+		continueDelayOnInactiveTab: false,
+		position: 'top center',
+		icon: 'bx bxs-check-circle',
+		showClass: 'zoomIn',
+		hideClass: 'zoomOut',
+		size: 'mini',
+		rounded: true,
+		msg: 'You Are Back Online.'
+	});
+}
