@@ -3099,6 +3099,28 @@ var result = data[Math.floor(Math.random() * data.length)];
 res.json(loghandler.apikey)
 }
 })
-
+router.get('/other/kampus', async (req, res, next) => {
+  var apikey = req.query.apikey
+ var text = req.query.username
+ if(!apikey) return res.json(loghandler.apikey)
+if(!text) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter username"})
+if(listkey.includes(apikey)){
+fetch(encodeURI(`https://api.spadadikti.id/register/pt?per-page=10&q=${text}`))
+.then(response => response.json())
+.then(data => {
+var result = data;
+     res.json({
+       author: 'Zeeone',
+         result
+     })
+ })
+ .catch(e => {
+   console.log(e);
+   res.json(loghandler.error)
+})
+} else {
+res.json(loghandler.apikey)
+}
+})
 
 module.exports = router
