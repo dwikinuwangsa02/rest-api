@@ -3149,5 +3149,28 @@ var result = data;
 res.json(loghandler.apikey)
 }
 })
+router.get('/other/datadosen', async (req, res, next) => {
+  var apikey = req.query.apikey
+ var nidn = req.query.nidn
+ if(!apikey) return res.json(loghandler.apikey)
+if(!nidn) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter nidn"})
+if(listkey.includes(apikey)){
+fetch(encodeURI(`https://api.spadadikti.id/register/pt?per-page=10&q=${nidn}`))
+.then(response => response.json())
+.then(data => {
+var result = data;
+     res.json({
+       author: 'MyFileArchive',
+         result
+     })
+ })
+ .catch(e => {
+   console.log(e);
+   res.json(loghandler.error)
+})
+} else {
+res.json(loghandler.apikey)
+}
+})
 
 module.exports = router
