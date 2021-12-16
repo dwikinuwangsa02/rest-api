@@ -3101,16 +3101,43 @@ res.json(loghandler.apikey)
 })
 router.get('/other/kampus', async (req, res, next) => {
   var apikey = req.query.apikey
- var text = req.query.username
+ var text = req.query.kampus
  if(!apikey) return res.json(loghandler.apikey)
-if(!text) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter username"})
+if(!text) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter kampus"})
 if(listkey.includes(apikey)){
 fetch(encodeURI(`https://api.spadadikti.id/register/pt?per-page=10&q=${text}`))
 .then(response => response.json())
 .then(data => {
 var result = data;
      res.json({
-       author: 'Zeeone',
+       author: 'MyFileArchive',
+         result
+     })
+ })
+ .catch(e => {
+   console.log(e);
+   res.json(loghandler.error)
+})
+} else {
+res.json(loghandler.apikey)
+}
+})
+router.get('/other/datamahasiswa', async (req, res, next) => {
+  var apikey = req.query.apikey
+ var idkampus = req.query.idkampus
+ var idprodi = req.query.idprodi
+ var nim = req.query.nim
+ if(!apikey) return res.json(loghandler.apikey)
+if(!idkampus) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter idkampus"})
+if(!idprodi) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter idprodi"})
+if(!nim) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter nim"})
+if(listkey.includes(apikey)){
+fetch(encodeURI(`https://api.spadadikti.id/register/pt/${idkampus}/prodi/${idprodi}/mahasiswa/${nim}`))
+.then(response => response.json())
+.then(data => {
+var result = data;
+     res.json({
+       author: 'MyFileArchive',
          result
      })
  })
