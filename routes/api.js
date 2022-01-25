@@ -3155,7 +3155,7 @@ router.get('/other/datadosen', async (req, res, next) => {
  if(!apikey) return res.json(loghandler.apikey)
 if(!nidn) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter nidn"})
 if(listkey.includes(apikey)){
-fetch(encodeURI(`https://api.spadadikti.id/register/pt?per-page=10&q=${nidn}`))
+fetch(encodeURI(`https://api.spadadikti.id/register/dosen?nidn=${nidn}`))
 .then(response => response.json())
 .then(data => {
 var result = data;
