@@ -13,8 +13,6 @@ var kuhong = db.get('ojan'); // jan diubah
 
 var axios = require('axios');
 var qs = require('qs');
-var ytdl = require('ytdl-core');
-var ytpl = require('ytpl');
 var secure = require('ssl-express-www');
 var cors = require('cors');
 var scrapeYt = require("scrape-yt");
