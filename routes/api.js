@@ -3130,7 +3130,7 @@ if(!idkampus) return res.json({ status : false, creator : `${creator}`, message 
 if(!idprodi) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter idprodi"})
 if(!nim) return res.json({ status : false, creator : `${creator}`, message : "masukan parameter nim"})
 if(listkey.includes(apikey)){
-fetch(encodeURI(`https://api.spadadikti.id/register/pt/${idkampus}/prodi/${idprodi}/mahasiswa/${nim}`))
+fetch(encodeURI(`https://register.spadadikti.id/api/pt/${idkampus}/prodi/${idprodi}/mahasiswa/${nim}`))
 .then(response => response.json())
 .then(data => {
 var result = data;
